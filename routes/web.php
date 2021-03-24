@@ -13,16 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\ControllerLista@index')->name('listas.raiz');
+Route::get('/', 'App\Http\Controllers\ObjetosController@index')->name('objetos.index');
 
-Route::get('listas', 'App\Http\Controllers\ControllerLista@index')->name('listas.index');
+Route::get('agregar', 'App\Http\Controllers\ObjetosController@vistaAgregar')->name('objetos.agregar');
 
-Route::get('agregar', 'App\Http\Controllers\ControllerLista@agregar')->name('listas.agregar');
+Route::post('crear', 'App\Http\Controllers\ObjetosController@crear')->name('objetos.store');
 
-Route::post('crear', 'App\Http\Controllers\ControllerLista@store')->name('listas.store');
+Route::get('/{id}/editar', 'App\Http\Controllers\ObjetosController@edit' )->name('objetos.edit');
 
-Route::get('listas/{id}/editar', 'App\Http\Controllers\ControllerLista@edit')->name('listas.edit');
+Route::put('/{objetos}/editar', 'App\Http\Controllers\ObjetosController@update' )->name('objetos.update');
 
-Route::put('listas/{listas}/editar', 'App\Http\Controllers\ControllerLista@update')->name('listas.update');
+Route::delete('/{id}', 'App\Http\Controllers\ObjetosController@destroy' )->name('objetos.destroy');
 
-Route::delete('listas/{id}', 'App\Http\Controllers\ControllerLista@destroy')->name('listas.destroy');
